@@ -9,6 +9,10 @@ from .SparkDriver import SparkDriver
 class GeoSparkDriver(SparkDriver):
     """
     GeoSparkDriver
+
+    Note:
+        - for Spark2.x
+            - not work well in Spark3.0.0
     """
 
     def __init__(self):
