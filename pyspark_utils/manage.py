@@ -8,7 +8,7 @@ import pyspark
 from .SparkDriver import SparkDriver, GeoSparkDriver
 
 
-def get_or_create_spark_session():
+def get_or_create_spark_session() -> pyspark.sql.session.SparkSession:
     """
     get or create sparkSession
 
@@ -23,7 +23,7 @@ def get_or_create_spark_session():
     return spark
 
 
-def get_or_create_geospark_session():
+def get_or_create_geospark_session() -> pyspark.sql.session.SparkSession:
     """
     get or create sparkSession for geospark
 
@@ -31,6 +31,10 @@ def get_or_create_geospark_session():
         - only work at spark2.x
             - error will occur in spark3.x
         - implementation is TEMPORARY.
+
+    ToDo:
+        - improve config: using KryoSerializer & GeoSparkKryoRegistrator
+            - https://datasystemslab.github.io/GeoSpark/tutorial/geospark-sql-python/#writing-application
     """
     gsd = GeoSparkDriver()
     spark = gsd.spark
